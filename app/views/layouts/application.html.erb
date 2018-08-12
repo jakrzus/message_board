@@ -9,18 +9,17 @@
     <meta name="viewport">
   </head>
 
-  <body class="tlo">
+  <body>
 
     <div class="container ">
 
       <nav class="navbar navbar-default">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            Message Board</a>
+          <%= link_to "MessageBoard", posts_path, class: "navbar-brand" %>
         </div>
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-            <p class="navbar-text">
+            <p class="navbar-text flex-right">
               Logged in as
 
               <strong>
@@ -29,17 +28,17 @@
             </p>
 
             <li>
-              <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default navbar-btn pull-right"%>
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default navbar-btn flex-right"%>
             </li>
             <li>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn pull-right" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn flex-right" %>
             </li>
           <% else %>
             <li>
               <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn pull-right" %>
             </li>
             <li>
-              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn pull-right" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary navbar-btn pull-right" %>
             </li>
 
           <% end %>
