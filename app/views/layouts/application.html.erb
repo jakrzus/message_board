@@ -5,53 +5,55 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport">
   </head>
 
-  <body>
-    <div class="container-fluid">
+  <body class="tlo">
 
-      <div class="container">
+    <div class="container ">
 
-        <nav class="navbar navbar-default">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              Message Board</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
-              <p class="navbar-text">
-                Logged in as
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            Message Board</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <p class="navbar-text">
+              Logged in as
 
-                <strong>
-                  <%= current_user.email%>
-                </strong>
-              </p>
+              <strong>
+                <%= current_user.email%>
+              </strong>
+            </p>
 
-              <li>
-                <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default navbar-btn pull-right"%>
-              </li>
-              <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn pull-right" %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn pull-right" %>
-              </li>
-              <li>
-                <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn pull-right" %>
-              </li>
+            <li>
+              <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-default navbar-btn pull-right"%>
+            </li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn pull-right" %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn pull-right" %>
+            </li>
+            <li>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-default navbar-btn pull-right" %>
+            </li>
 
-            <% end %>
+          <% end %>
 
-          </ul>
-        </nav>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-      <div class="jumbotron">
-        <%= yield %>
-      </div>
+        </ul>
+      </nav>
+
     </div>
-  </body>
-</html>
+    <div class="container">
+      <div class="row">
+
+        <%= yield %>
+
+      </div>
+
+    </body>
+  </html>

@@ -1,0 +1,33 @@
+<div class="alert alert-success" role="alert">
+  <%= notice %>
+</div>
+
+<div class="row">
+<div class="col-sm-3">
+
+</div>
+
+
+  <div class="col-sm-6">
+    <div class="card bg-light mb-3" style="max-width: 40rem; height: 40rem;">
+      <div class="card-header">
+         Created: <%= @post.created_at %>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">
+<%= @post.title %>
+</h3>
+
+
+        <pre class="card-text"><%= @post.tekst %></pre>
+        <% if @post.user == current_user %>
+        <%= link_to 'Edit', edit_post_path(@post), style: "button float-bottom", class:"btn btn-primary" %>
+<% end %>
+        <%= link_to 'Back', posts_path, class: "btn btn-primary", style: "button" %>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

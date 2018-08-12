@@ -1,0 +1,44 @@
+<h1>Listing Posts</h1>
+
+<br>
+<div class="row ">
+
+
+  <div class="col-6">
+    <% @posts.each do |post| %>
+
+      <div class="card bg-light mb-3 align-middle mx-auto" style=" max-width: 60rem;">
+
+<div class="card-header">
+  Created by: <%= post.user.email %>
+</div>
+
+        <h5 class="card-title"><%= post.title %></h5>
+
+        <div class="card-body">
+          <pre class="card-text"><%= post.tekst %>
+          </pre>
+
+          <%= link_to 'show', post, class: "btn btn-primary" %>
+
+          <% if post.user ==  current_user  %>
+            <%= link_to 'edit', edit_post_path(post), class: "btn btn-primary" %>
+            <%= link_to 'delete', post, method: :delete, data: { confirm: 'are you sure?' }, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to 'edit', edit_post_path(post), class: "btn btn-primary disabled" %>
+            <%= link_to 'delete', post, method: :delete, data: { confirm: 'are you sure?' }, class: "btn btn-danger disabled" %>
+
+          </div>
+<div class="card-footer text-muted">
+  Posted: <%= post.created_at %>
+</div>
+        </div>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+  <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
+
+</div>
