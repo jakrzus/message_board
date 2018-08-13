@@ -3,31 +3,35 @@
 </div>
 
 <div class="row">
-<div class="col-sm-3">
+  <div class="col-sm-3"></div>
 
-</div>
-
-
-  <div class="col-sm-6">
-    <div class="card bg-light mb-3" style="max-width: 40rem; height: 40rem;">
-      <div class="card-header">
-         Created: <%= @post.created_at %>
+  <div class="col-sm-6 list-group">
+    <div class="card bg-light mb-3 list-group-item" style="max-width: 40rem;">
+      <div class="card-header text-right">
+        Created:
+        <%= @post.created_at %>
       </div>
       <div class="card-body">
         <h3 class="card-title">
-<%= @post.title %>
-</h3>
-
+          <%= @post.title %>
+        </h3>
 
         <pre class="card-text"><%= @post.tekst %></pre>
         <% if @post.user == current_user %>
-        <%= link_to 'Edit', edit_post_path(@post), style: "button float-bottom", class:"btn btn-primary" %>
-<% end %>
+          <%= link_to 'Edit', edit_post_path(@post), style: "button float-bottom", class:"btn btn-primary fixed-bottom" %>
+        <% end %>
+        <%= link_to "Reply", new_post_reply_path(@post) %>
         <%= link_to 'Back', posts_path, class: "btn btn-primary", style: "button" %>
 
       </div>
-    </div>
+      <ul class="list-group list-group-flush">
+        <% @post.replies.each do |reply|%>
+           <li class="list-group-item"><%= reply.comment %></li> 
+        <% end %>
+      </ul>
 
+    </div>
+    <div class=""></div>
   </div>
 
 </div>
