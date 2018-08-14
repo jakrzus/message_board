@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @replies = @post.replies
+    @reply = Reply.new
+
   end
 
   # GET /posts/new

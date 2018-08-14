@@ -3,11 +3,10 @@
   <h2>Replying to:
     <%= @post.title %>
   </h2>
+
   <%= form_for [@post, @reply] do |f| %>
 
   <%= f.text_area :comment, size: "60x12" %>
-  <% f.hidden_field :post_id, value: @post.id  %>
-<br>
     <%= f.submit class: "btn btn-primary"%>
   <% end %>
 </div>
