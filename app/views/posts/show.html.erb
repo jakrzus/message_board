@@ -6,7 +6,7 @@
   <div class="col-sm-3"></div>
 
   <div class="col-sm-6 list-group">
-    <div class="card bg-light mb-3 list-group-item" style="max-width: 40rem;">
+    <div class="card bg-light mb-3 list-group-item" style="">
       <div class="card-header text-right">
         Created:
         <%= @post.created_at %>
@@ -26,7 +26,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <% @post.replies.each do |reply|%>
-           <li class="list-group-item"><%= reply.comment %></li> 
+           <li class="list-group-item"><%= reply.comment %></li>
         <% end %>
       </ul>
 
